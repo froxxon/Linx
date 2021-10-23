@@ -44,10 +44,12 @@ For everything to work as expected the following requirements should be met:
 - Create an internal DNS-record, ex. linx.domain.local
 - Issue a web server certificate according to normal routine
 - Create a gMSA service account (*with no more than "Domain user" rights*)
-- Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/thisserve
+- Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
-  
+- Start Powershell with elevated Admin rights
+- Run "*bin\Install-Linx.ps1*" in the Linx directory
+
 **Upcoming**
 ```Upcoming```
 
