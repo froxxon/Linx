@@ -5,7 +5,7 @@ A web site for web links, based on RestPS
 
 ## DESCRIPTION
 
-*A **strong** recommendation is to test this in a lab environment, if such exist, first hand ;) This module is provided 'as is' until further notice!*
+*A **strong** recommendation is always to test this in a lab environment, if such exist, first hand ;) This information provided here is 'as is' until otherwise mentioned!*
 
 Ever felt confused when joining a new firm about where to find things? Some things are known by him, her, that and/or maybe even this...
 No worries, now if you have some Windows server just idling you can quite easily gather all these pieces in one place and share the knowledge with others.
