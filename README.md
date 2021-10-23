@@ -13,6 +13,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 
 ## FEATURES
 - Enable/disable use of personal themes
+-- Currently 3 different themes available
 - Enable/disable use of personal links/categories
 - Categorize, tag and filter links to find them fast
 - Role based Access Control for editors and admins
