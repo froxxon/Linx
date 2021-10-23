@@ -12,7 +12,7 @@ A web site for web links, based on RestPS
 ## CHANGE LOG
 
 #### version 2.0.0 (2021-20-24)
-- Version *'2.0'* released
+- Version *2.0* released
 
 <details><summary>View all</summary>
 
