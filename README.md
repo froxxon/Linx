@@ -42,3 +42,7 @@ For everything to work as expected the following requirements should be met:
   
 **Upcoming**
 ```Upcoming```
+
+## GREETINGS
+A big thanks to [Justin S](https://github.com/jpsider) for the development of RestPS,
+an old version is the corner stone of this project.
