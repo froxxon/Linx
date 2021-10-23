@@ -8,8 +8,19 @@ A web site for web links, based on RestPS
 *A **strong** recommendation is to test this in a lab environment, if such exist, first hand ;) This module is provided 'as is' until further notice!*
 
 ## FEATURES
+- Enable/disable use of personal themes
+- Enable/disable use of personal links/categories
+- Categorize, tag and filter links to find them fast
+- Role based Access Control for editors and admins
+- OU based access control for normal users
+- Customize some CSS in web interface
+- Customize regular expressiondös used to your need
+- No database needed, all stored locally (*with pro's and con's coming with that approach*)
+- Support for multiple languages, currently English and Swedish
+- Fully customizable (*as long as you know your PS*)
 
 ## FUTURE CHANGES
+- None planned yet
 
 ## CHANGE LOG
 
