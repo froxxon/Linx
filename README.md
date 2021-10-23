@@ -23,6 +23,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 - Support for multiple languages, currently English and Swedish
 - Fully customizable (*as long as you know your PS*)
 - Add notes and a potential contact to each link
+- Uses "*System.Net.HttpListener*"
 - And more...
 
 ## FUTURE CHANGES
