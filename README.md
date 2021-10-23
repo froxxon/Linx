@@ -7,17 +7,23 @@ A web site for web links, based on RestPS
 
 *A **strong** recommendation is to test this in a lab environment, if such exist, first hand ;) This module is provided 'as is' until further notice!*
 
+Ever felt confused when joining a new firm about where to find things? Some things are known by him, her, that and/or maybe even this...
+No worries, now if you have some Windows server just idling you can quite easily gather all these pieces in one place and share the knowledge with others.
+This place would in this scenario be, you've probably already guessed it, Linx.
+
 ## FEATURES
 - Enable/disable use of personal themes
 - Enable/disable use of personal links/categories
 - Categorize, tag and filter links to find them fast
 - Role based Access Control for editors and admins
 - OU based access control for normal users
-- Customize some CSS in web interface
-- Customize regular expressiondös used to your need
+- Customize (*some*) CSS in web interface
+- Customize regular expressions used to your need
 - No database needed, all stored locally (*with pro's and con's coming with that approach*)
 - Support for multiple languages, currently English and Swedish
 - Fully customizable (*as long as you know your PS*)
+- Add notes and a potential contact to each link
+- And more...
 
 ## FUTURE CHANGES
 - None planned yet
@@ -58,11 +64,7 @@ For everything to work as expected the following requirements should be met:
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
-- Start Powershell with elevated Admin rights
-- Run "*bin\Install-Linx.ps1*" in the Linx directory
-
-**Upcoming**
-```Upcoming```
+- TBA
 
 ## GREETINGS
 A big thanks to [Justin S](https://github.com/jpsider) for the development of RestPS,
