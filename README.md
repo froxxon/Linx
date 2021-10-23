@@ -1,3 +1,5 @@
+![TS step 1](linx/images/logo_default.png)
+
 # Linx
 A web site for web links, based on RestPS
 
