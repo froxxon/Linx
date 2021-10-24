@@ -50,6 +50,7 @@ For everything to work as expected the following requirements should be met:
 - Local Administrator membership to setup the web site
 - Issued web certificate from internal CA
 - Tested and developed in PS 5.1
+- A Windows Server joined to Active Directory with mentioned PS version
 
 **Specifics**
 - Powershell version 5.1 *'(not tested in other versions, but might work)'*
@@ -65,7 +66,18 @@ For everything to work as expected the following requirements should be met:
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
-- Run "*Install-Linx.ps1*" (*not provided yet*) from an elevated Powershell prompt, use the Thumbprint for the SSL certificate as a parameter.
+- Configure "*base_settings.json*" to suite your environment:
+    *ServerURL:* https://linx.froxxen.com
+    *SSLThumbprint:* <Check your certificates thumbprint>
+    *AdminGroup:* Common name of the group containing Linx-administrators
+    *EditGroup:* Common name of the group containing Linx-editors (*a.k.a. admins without sugar*)
+    *OU_Admin:* Distinguished name for the OU which holds your administrative accounts, if those shall have access to Linx
+    *OU_Group:* Distinguished name for the OU containing the Admin and Edit Linx groups
+    *OU_User:* Distinguished namr for the OU containing the standard users of Linx
+
+    ShortURL, Port, Domain and Language could also be specified if necessary...
+
+- Run "*Install-Linx.ps1*" (*not provided yet*) from an elevated Powershell prompt, uses the information provided in "*base_settings.json*"
 
 - gMSA minimum permissions (*recommended*):
   "Delete" files under "bin\Personal"
