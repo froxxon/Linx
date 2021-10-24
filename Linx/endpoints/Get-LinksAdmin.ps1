@@ -57,7 +57,7 @@ if ( !$RequestArgs ) {
         <thead><tr><th align="left" width="30%" onclick="sortTableByAREF(0)">$($ScriptVariables.Text.LblName)</th><th width="30%" onclick="sortTable(1)">$($ScriptVariables.Text.LblDescription)</th><th width="15%" onclick="sortTable(2)">$($ScriptVariables.Text.LblCategory)</th><th width="15%" onclick="sortTable(3)">$($ScriptVariables.Text.LblRole)</th><th width="5%" onclick="sortTable(4)">$($ScriptVariables.Text.LblShowLink)</th>$Edit</tr></thead>
           <tbody>
 "@
-    foreach ( $Link in $Links | Sort-Object Name -Descending ) {
+    foreach ( $Link in $Links | Sort-Object Name ) {
         if ( $Link.Disabled -match "^true$" ) {
             $Enabled = '<font class="admlinkdisabled">' + $ScriptVariables.Text.IsNo + '</font>'
         }
@@ -518,7 +518,7 @@ $HTML += @"
         }
       }
     }
-    sortTableByAREF(0);
+    //sortTableByAREF(0);
 
     function enableDisableFields() {    
         if (document.getElementById('chkPersonal').checked) {
