@@ -70,16 +70,16 @@ For everything to work as expected the following requirements should be met:
 
 ## INSTALLATION
 - Run the script "*bin\Set-Service.ps*" in an elevated Powershell prompt (*assign different parameters if NSSM or Linx paths are changed*)
-- 
+
 - Open "*services.msc*" elevated and find the service "*Linx*"
    - Right-click and select "*Properties*" \ "*Log on*" \ "*This account*"
    - Enter the gMSA service account, clear the password fields and save by pressing "*OK*"
-   - 
+
 - Open an elevated command prmopt and run these two commands:
    - Replace FQDN, Port and Thumbprint used to match your environment:
-     *netsh http add sslcert hostnameport=**linx.domain.local***:**443** appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=**<THUMBPRINT>** certstorename=My*
+     ```netsh http add sslcert hostnameport=**linx.domain.local**:**443** appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=**<THUMBPRINT>** certstorename=My```
    - Replace FQDN, Port, Domain and the gMSA service account used to match your environment
-     *netsh http add urlacl url="https://**linx.aklagare.net**:**443**/" user="**DOMAIN**\**gMSA-Linx$**"*
+     ```netsh http add urlacl url="https://**linx.aklagare.net**:**443**/" user="**DOMAIN**\**gMSA-Linx$**"```
  
 - Configure "*base_settings.json*" to match your environment:
    - *ServerURL:* https://linx.domain.local (*pre https:// must match CN or SAN in certificate*)
