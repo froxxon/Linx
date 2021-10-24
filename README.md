@@ -68,7 +68,7 @@ For everything to work as expected the following requirements should be met:
 
 ## INSTALLATION
 - Configure "*base_settings.json*" to match your environment:
-   - *ServerURL:* https://linx.froxxen.com (*must match CN or SAN in certificate*)
+   - *ServerURL:* https://linx.froxxen.com (*pre https:// must match CN or SAN in certificate*)
    - *SSLThumbprint:* Check your certificates thumbprint and paste it here
    - *AdminGroup:* Common name of the group containing Linx-administrators
    - *EditGroup:* Common name of the group containing Linx-editors (*a.k.a. admins without sugar*)
