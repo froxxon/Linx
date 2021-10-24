@@ -54,7 +54,7 @@ For everything to work as expected the following requirements should be met:
 - A Windows Server joined to Active Directory with mentioned PS version
 
 **Specifics**
-- Powershell version 5.1 *'(not tested in other versions, but might work)'*
+- Powershell version 5.1 *(not tested in other versions, but might work)*
 ...
 </details>
 
