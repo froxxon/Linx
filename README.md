@@ -37,7 +37,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 
 <details><summary>View all</summary>
 
-#### version 0.0.1 - 1.0.0 (2021-05-30 - 2021-10-24)
+#### version 0.0.1 - 1.9.9 (2021-05-30 - 2021-10-24)
 - Undocumented           
 </details>
   
