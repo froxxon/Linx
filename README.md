@@ -60,12 +60,19 @@ For everything to work as expected the following requirements should be met:
 
 ## PRE-INSTALLAION
 - Download and unpack this repo to a Windows Server under ex. "*C:\RestPS\Linx*"
+
 - Download [NSSM](https://nssm.cc/download) and install to default directory in "*C:\Program Files*"
+
 - Create an internal DNS-record, ex. "*linx.domain.local*"
+
 - Issue a web server certificate according to normal routine and add to "*Personal*" \ "*Certificates*" in "*certlm.msc*"
+
 - Create a gMSA service account (*with no more than "Domain user" rights, except the need to "*Log on as a service*" on this specific server*)
+
 - Install and test the gMSA service account (*"install-adserviceaccount gmsa-linx"  and "test-adserviceaccount gmsa-linx*" )
+
 - Create two security groups, one for Edit- and one for Admin access to Linx (*and add sufficient members to those*)
+
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
@@ -114,19 +121,24 @@ For everything to work as expected the following requirements should be met:
 ## POST-INSTALLATION
 - Every now and then your certificate will expire, then:
    - Order a new certificate according to your local routines
+   
    - Open "*certlm.msc*" and add the certificate to "*Personal*" \ "*Certificates*"
+   
    - Remove the old certificate in the same store (*recommended*)
+   
    - Open an elevated command prompt and run (*changes values to match your environment*):
    
       ```netsh http delete sslcert hostnameport=linx.domain.local:443```
       
       ```netsh http add sslcert hostnameport=linx.domain.local:443 appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=THUMBPRINT certstorename=My```
    - Open "*base_settings.json*' in an elevated editor and change "*SSLThumbprint*" to the one matching the new certificate
+   
    - Restart the service
 
 ## TROUBLESHOOTING
 - The service won't start:
    - Verify that the minimum ACLs are set accordingaly
+   
 - The service *still* won't start:
    - Run "*Start-Service.ps1*" in a Powershell prompt started as the gMSA service account for further analysis
 
