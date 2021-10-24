@@ -81,27 +81,27 @@ For everything to work as expected the following requirements should be met:
 - Run "*Install-Linx.ps1*" (*not provided yet*) from an elevated Powershell prompt, uses the information provided in "*base_settings.json*"
 
 - gMSA minimum permissions (*recommended*):
-   - "Delete" files under "bin\Personal"
-   - "Modify" on the following subfolders and files:
+   - "*Delete*" files under "*bin\Personal*"
+   - "*Modify*" on the following subfolders and files:
       - bin (*folder*)
       - images (*folder*)
       - lang (*folder*)
       - logs (*folder*)
       - settings (*folder*)
       - style (*folder*)
-      - base_settings.jso
+      - base_settings.json
 - gMSA sloppy ACLs (**not** *recommended*):
-   - "Full Control" on Linx subfolders and files
+   - "*Full Control*" on Linx subfolders and files
 
 ## POST-INSTALLATION
 - Every now and then your certificate will expire, then you need to order a new one according to your local routines and then run "*bin\Update-LinxCertificate.ps1*" (*not released yet though*) in an elevated Powershell prompt
 
 ## TROUBLESHOOTING
 - The service won't start:
-  Verify that the minimum ACLs are set accordingaly
+   - Verify that the minimum ACLs are set accordingaly
 - The service *still* won't start:
-  Run "*Start-Service.ps1*" in a Powershell prompt started as the gMSA service account for further analysis
+   - Run "*Start-Service.ps1*" in a Powershell prompt started as the gMSA service account for further analysis
 
 ## GREETINGS
-A big thanks to [Justin S](https://github.com/jpsider) for the development of RestPS,
+A **big thanks** to [Justin S](https://github.com/jpsider) for the development of RestPS,
 an old version is the corner stone of this project.
