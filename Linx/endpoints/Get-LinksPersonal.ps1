@@ -76,7 +76,7 @@ elseif ( $RequestArgs -match '^[0-9]{7}$' ) {
     }
     $HTML += '<tr><td>'
     $HTML += '<table class="innertable">'
-    $HTML += '<form name="SaveLink" action="/ManageLink" method="POST" enctype="multipart/form-data" accept-charset="' + $ScriptVariables.Charset + '">'
+    $HTML += '<form id="frmSaveLink" action="/ManageLink" method="POST" enctype="multipart/form-data" accept-charset="' + $ScriptVariables.Charset + '">'
     $HTML += '<tr><td>' + $ScriptVariables.Text.LblName + '</td><td width="100%"><input type=text name="Name" value="' + $Link.Name + '" class="inputFilter" placeholder="' + $ScriptVariables.Text.PhdName + '" maxlength="128" pattern="' + $ScriptVariables.Regex.RgxName + '" required></td></tr>'
     $HTML += '<tr><td>' + $ScriptVariables.Text.LblURL + '</td><td><input type=url name="URL" value="' + $Link.URL + '" class="inputFilter" placeholder="' + $ScriptVariables.Text.PhdURL + '" required></td></tr>'
     $HTML += '<tr><td>' + $ScriptVariables.Text.LblDescription + '</td><td><input type=text value="' + $Link.Description + '" name="Description" class="inputFilter" placeholder="' + $ScriptVariables.Text.PhdDescription + '" pattern="' + $ScriptVariables.Regex.RgxDescription + '"></td></tr>'
@@ -89,7 +89,7 @@ elseif ( $RequestArgs -match '^[0-9]{7}$' ) {
     $HTML += '</table>'
     $HTML += '</td></tr>'
     $HTML += '<table class="innertable">'
-    $HTML += '<tr><td><a title="' + $ScriptVariables.Text.RemoveLinkWarning + '" href="/Personal?remove' + $RequestArgs + '" align="center" class="removelink">' + $ScriptVariables.Text.RemoveLink + '</a></td><td align="right"><button class="btn" type="button" onclick="window.location.href=`/Personal`">' + $ScriptVariables.Text.CancelBtn + '</button><input class="btn" type="Submit" value="' + $ScriptVariables.Text.UpdateBtn + '"></td></tr>'
+    $HTML += '<tr><td><a title="' + $ScriptVariables.Text.RemoveLinkWarning + '" href="/Personal?remove' + $RequestArgs + '" align="center" class="removelink">' + $ScriptVariables.Text.RemoveLink + '</a></td><td align="right"><button class="btn" type="button" onclick="window.location.href=`/Personal`">' + $ScriptVariables.Text.CancelBtn + '</button><input class="btn" type="Submit" form="frmSaveLink" value="' + $ScriptVariables.Text.UpdateBtn + '"></td></tr>'
     $HTML += '</table>'
     $HTML += '</td></tr>'
 }
