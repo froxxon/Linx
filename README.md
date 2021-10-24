@@ -111,7 +111,7 @@ For everything to work as expected the following requirements should be met:
  
 - Configure "*base_settings.json*" to match your environment:
    
-   - *ServerURL:* https://linx.domain.local (*pre https:// must match CN or SAN in certificate*)
+   - *ServerURL:* https://linx.domain.local (*post https:// must match CN or SAN in certificate*)
    
    - *ShortURL:* linx.domain.local (*FQDN*)
    
