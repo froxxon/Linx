@@ -126,7 +126,7 @@ elseif ( $RequestArgs -match '^[0-9]{8}$' ) {
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblTags + '</td><td><input type="text" value="' + $Link.Tags + '" class="inputFilter" name="Tags" pattern="' + $ScriptVariables.Regex.RgxTags + '" placeholder="' + $ScriptVariables.Text.PhdTags + '"/></td></tr>'
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblContact + '</td><td><input type="text" value="' + $Link.Contact + '" class="inputFilter" name="Contact" pattern="' + $ScriptVariables.Regex.RgxContact + '" placeholder="' + $ScriptVariables.Text.PhdContact + '"/></td></tr>'
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblNotes + '</td><td><input type="text" value="' + $Link.Notes + '" class="inputFilter" name="Notes" pattern="' + $ScriptVariables.Regex.RgxNotes + '" placeholder="' + $ScriptVariables.Text.PhdNotes + '"/></td></tr>'
-    $HTML += '<tr><td></td><td align="right"><label for="Enabled">' + $ScriptVariables.Text.LblShowLink + '</label><input type=checkbox  name="Enabled" value="checked" ' + $Enabled + '></td></tr>'
+    $HTML += '<tr><td align="left" style="width: 25%">' + $ScriptVariables.Text.LblShowLink + '</td><td align="right"><label class="switch"><input type=checkbox id="chkEnabled" name="Enabled" value="checked" ' + $Enabled + '><span class="slider"></span></label></td></tr>'
     $HTML += '<input hidden name="Type" value="update" type="text"/>'
     $HTML += '<input hidden name="ID" value="' + $RequestArgs + '" type="text"/>'
     $HTML += '</form>'
@@ -161,10 +161,10 @@ elseif ( $RequestArgs -match '^new$' ) {
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblTags + '</td><td><input type="text" class="inputFilter" name="Tags" pattern="' + $ScriptVariables.Regex.RgxTags + '" placeholder="' + $ScriptVariables.Text.PhdTags + '"/></td></tr>'
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblContact + '</td><td><input type="text" class="inputFilter" name="Contact" pattern="' + $ScriptVariables.Regex.RgxContact + '" placeholder="' + $ScriptVariables.Text.PhdContact + '"/></td></tr>'
     $HTML += '<tr><td align="left" style="width: 25%;">' + $ScriptVariables.Text.LblNotes + '</td><td><input type="text" class="inputFilter" name="Notes" pattern="' + $ScriptVariables.Regex.RgxNotes + '" placeholder="' + $ScriptVariables.Text.PhdNotes + '"/></td></tr>'
+    $HTML += '<tr><td align="left" style="width: 25%">' + $ScriptVariables.Text.LblShowLink + '</td><td align="right"><label class="switch"><input type=checkbox id="chkEnabled" name="Enabled" value="checked" checked><span class="slider"></span></label></td></tr>'
     if ( $ScriptVariables.AllowPersonalLinks -eq $true ) {
-        $PersonalLink += '<label for="Personal" title="' + $ScriptVariables.Text.PersonalText + '" >' + $ScriptVariables.Text.LblPersonal + '</label><input type=checkbox id="chkPersonal" onclick="enableDisableFields()"  title="' + $ScriptVariables.Text.PersonalText + '" name="Personal" value="checked"><pre>   </pre>'
-    } else { $PersonalLink = $null }
-    $HTML += '<tr><td></td><td align="right">' + $PersonalLink + '<label for="Enabled">' + $ScriptVariables.Text.LblShowLink + '</label><input type=checkbox name="Enabled" value="checked" checked></td></tr>'
+        $HTML += '<tr><td align="left" style="width: 25%">' + $ScriptVariables.Text.LblPersonal + '</td><td align="right"><label class="switch" title="' + $ScriptVariables.Text.PersonalText + '" ><input type=checkbox id="chkPersonal" onclick="enableDisableFields()"  title="' + $ScriptVariables.Text.PersonalText + '" name="Personal" value="checked"><span class="slider"></span></label></td></tr>'
+    }
     $HTML += '<input hidden name="Type" value="new" type="text"/>'
     $HTML += '</form>'
     $HTML += '</table>'
@@ -325,31 +325,38 @@ elseif ( $RequestArgs -match '^Settings$' ) {
             $HTML += '<td style="width: 50%;" align="right"><select class="selLang" name="Theme"/>' + $SelectThemes -join '' + '</select></td></tr>'
         }
         elseif ( $Setting.Name -eq 'AllowPersonalLinks' ) {
-            if ( $ScriptVariables.AllowPersonalLinks -eq $True ) {
-                $CurrentStatus = '<option value="True" selected>' + $ScriptVariables.Text.IsYes + '</option><option value="False">' + $ScriptVariables.Text.IsNo + '</option>'
+            if ( $ScriptVariables.AllowPersonalLinks -eq $true ) {
+                $Enabled = 'checked'
             }
             else {
-                $CurrentStatus = '<option value="True">' + $ScriptVariables.Text.IsYes + '</option><option value="False" selected>' + $ScriptVariables.Text.IsNo + '</option>'
+                $Enabled = $null
             }
-            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td style="width: 50%;" align="right"><select class="selLang" name="AllowPersonalLinks"/>' + $CurrentStatus + '</select></td></tr>'
+            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td align="right"><label class="switch"><input type=checkbox id="chkAllowPersonalLinks" name="AllowPersonalLinks" value="True" ' + $Enabled + '><span class="slider"></span></label></td></tr>'
         }
         elseif ( $Setting.Name -eq 'AllowPersonalTheme' ) {
-            if ( $ScriptVariables.AllowPersonalTheme -eq $True ) {
-                $CurrentStatus = '<option value="True" selected>' + $ScriptVariables.Text.IsYes + '</option><option value="False">' + $ScriptVariables.Text.IsNo + '</option>'
+            if ( $ScriptVariables.AllowPersonalTheme -eq $true ) {
+                $Enabled = 'checked'
             }
             else {
-                $CurrentStatus = '<option value="True">' + $ScriptVariables.Text.IsYes + '</option><option value="False" selected>' + $ScriptVariables.Text.IsNo + '</option>'
+                $Enabled = $null
             }
-            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td style="width: 50%;" align="right"><select class="selLang" name="AllowPersonalTheme"/>' + $CurrentStatus + '</select></td></tr>'
+            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td align="right"><label class="switch"><input type=checkbox id="chkAllowPersonalTheme" name="AllowPersonalTheme" value="True" ' + $Enabled + '><span class="slider"></span></label></td></tr>'
         }
         elseif ( $Setting.Name -eq 'ShowFooter' ) {
-            if ( $ScriptVariables.ShowFooter -eq $True ) {
-                $CurrentStatus = '<option value="True" selected>' + $ScriptVariables.Text.IsYes + '</option><option value="False">' + $ScriptVariables.Text.IsNo + '</option>'
+        #    if ( $ScriptVariables.ShowFooter -eq $True ) {
+        #        $CurrentStatus = '<option value="True" selected>' + $ScriptVariables.Text.IsYes + '</option><option value="False">' + $ScriptVariables.Text.IsNo + '</option>'
+        #    }
+        #    else {
+        #        $CurrentStatus = '<option value="True">' + $ScriptVariables.Text.IsYes + '</option><option value="False" selected>' + $ScriptVariables.Text.IsNo + '</option>'
+        #    }
+        #    $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td style="width: 50%;" align="right"><select class="selLang" name="ShowFooter"/>' + $CurrentStatus + '</select></td></tr>'
+            if ( $ScriptVariables.ShowFooter -eq $true ) {
+                $Enabled = 'checked'
             }
             else {
-                $CurrentStatus = '<option value="True">' + $ScriptVariables.Text.IsYes + '</option><option value="False" selected>' + $ScriptVariables.Text.IsNo + '</option>'
+                $Enabled = $null
             }
-            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td style="width: 50%;" align="right"><select class="selLang" name="ShowFooter"/>' + $CurrentStatus + '</select></td></tr>'
+            $HTML += '<tr><td style="width: 50%;" align="left">' + $Setting.Name + '</td><td align="right"><label class="switch"><input type=checkbox id="chkShowFooter" name="ShowFooter" value="True" ' + $Enabled + '><span class="slider"></span></label></td></tr>'
         }
         else {
             $HTML += '<tr><td style="width: 50%;" align="left"><label>' + $Setting.Name + '</label></td><td style="width: 50%;" align="right"><input type="text" value="' + $Setting.Value + '" disabled/></td></tr>'

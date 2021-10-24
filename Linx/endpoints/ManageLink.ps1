@@ -190,6 +190,7 @@ elseif ( $RequestArgs -match '^UpdateSettings$' ) {
         $ScriptVariables.Logo = Get-Content ($ScriptVariables.ScriptPath + '\images\logo_base64.txt')
     }
     if ( $AllowPersonalLinks -ne $ScriptVariables.AllowPersonalLinks ) {
+        if ( $AllowPersonalLinks -ne $true ) { $AllowPersonalLinks = $false }
         $Property = 'AllowPersonalLinks'
         $PropertyValue = $AllowPersonalLinks
         $CurrentRow = [regex]::match((Get-Content ($ScriptVariables.SettingsPath + 'custom_settings.json')),"`"$Property`".[^,]*").Value -replace ' }',''
@@ -198,6 +199,7 @@ elseif ( $RequestArgs -match '^UpdateSettings$' ) {
         $ScriptVariables.AllowPersonalLinks = $AllowPersonalLinks
     }
     if ( $AllowPersonalTheme -ne $ScriptVariables.AllowPersonalTheme ) {
+        if ( $AllowPersonalTheme -ne $true ) { $AllowPersonalTheme = $false }
         $Property = 'AllowPersonalTheme'
         $PropertyValue = $AllowPersonalTheme
         $CurrentRow = [regex]::match((Get-Content ($ScriptVariables.SettingsPath + 'custom_settings.json')),"`"$Property`".[^,]*").Value -replace ' }',''
@@ -206,6 +208,7 @@ elseif ( $RequestArgs -match '^UpdateSettings$' ) {
         $ScriptVariables.AllowPersonalTheme = $AllowPersonalTheme
     }
     if ( $ShowFooter -ne $ScriptVariables.ShowFooter ) {
+        if ( $ShowFooter -ne $true ) { $ShowFooter = $false }
         $Property = 'ShowFooter'
         $PropertyValue = $ShowFooter
         $CurrentRow = [regex]::match((Get-Content ($ScriptVariables.SettingsPath + 'custom_settings.json')),"`"$Property`".[^,]*").Value -replace ' }',''
