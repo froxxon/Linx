@@ -15,6 +15,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 - Enable/disable use of personal themes, currently 3 different themes available
 - Enable/disable use of personal links/categories
 - Categorize, tag and filter links to find them fast
+- Role bases Access Control *per* link
 - Role based Access Control for editors and admins
 - OU based access control for normal users
 - Customize (*some*) CSS in web interface
