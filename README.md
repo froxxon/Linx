@@ -1,7 +1,7 @@
 ![Logo](Linx/images/logo_default.png)
 
 # Linx
-A web site for web links, based on RestPS
+An *on-prem* web site for web links, based on RestPS
 
 ## DESCRIPTION
 
