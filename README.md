@@ -59,9 +59,9 @@ For everything to work as expected the following requirements should be met:
 </details>
 
 ## PRE-INSTALLAION
-- Download and unpack this repo to a Windows Server under ex. "C:\RestPS\Linx"
-- Download [NSSM](https://nssm.cc/download) and install to default directory in "Program Files"
-- Create an internal DNS-record, ex. linx.domain.local
+- Download and unpack this repo to a Windows Server under ex. "*C:\RestPS\Linx*"
+- Download [NSSM](https://nssm.cc/download) and install to default directory in "*C:\Program Files*"
+- Create an internal DNS-record, ex. "*linx.domain.local*"
 - Issue a web server certificate according to normal routine and add to "*Personal*" \ "*Certificates*" in "*certlm.msc*"
 - Create a gMSA service account (*with no more than "Domain user" rights, except the need to "*Log on as a service*" on this specific server*)
 - Install and test the gMSA service account (*"install-adserviceaccount gmsa-linx"  and "test-adserviceaccount gmsa-linx*" )
