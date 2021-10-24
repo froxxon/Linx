@@ -61,11 +61,33 @@ For everything to work as expected the following requirements should be met:
 - Download [NSSM](https://nssm.cc/download) and install to default directory in "Program Files"
 - Create an internal DNS-record, ex. linx.domain.local
 - Issue a web server certificate according to normal routine
-- Create a gMSA service account (*with no more than "Domain user" rights*)
+- Create a gMSA service account (*with no more than "Domain user" rights, except the need to "*Log on as a service*" on this specific server*)
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
-- TBA
+- Run "*Install-Linx.ps1*" (*not provided yet*) from an elevated Powershell prompt, use the Thumbprint for the SSL certificate as a parameter.
+
+- gMSA minimum permissions (*recommended*):
+  "Delete" files under "bin\Personal"
+  "Modify" on the following subfolders and files:
+    bin (*folder*)
+    images (*folder*)
+    lang (*folder*)
+    logs (*folder*)
+    settings (*folder*)
+    style (*folder*)
+    base_settings.jso
+- gMSA sloppy ACLs (**not** *recommended*):
+  "Full Control" on Linx subfolders and files
+
+## POST-INSTALLATION
+- Every now and then your certificate will expire, then you need to order a new one according to your local routines and then run "*bin\Update-LinxCertificate.ps1*" (*not released yet though*) in an elevated Powershell prompt
+
+## TROUBLESHOOTING
+- The service won't start:
+  Verify that the minimum ACLs are set accordingaly
+- The service *still* won't start:
+  Run "*Start-Service.ps1*" in a Powershell prompt started as the gMSA service account for further analysis
 
 ## GREETINGS
 A big thanks to [Justin S](https://github.com/jpsider) for the development of RestPS,
