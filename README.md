@@ -115,7 +115,7 @@ For everything to work as expected the following requirements should be met:
    
    - *ShortURL:* linx.domain.local (*FQDN*)
    
-   - *Domain:* DOMAIN (*short name fo the domain*)
+   - *Domain:* DOMAIN (*short name of the domain*)
    
    - *SSLThumbprint:* Check your certificates thumbprint and paste it here
    
