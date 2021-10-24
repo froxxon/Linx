@@ -77,8 +77,10 @@ For everything to work as expected the following requirements should be met:
 
 - Open an elevated command prmopt and run these two commands:
    - Replace FQDN, Port and Thumbprint used to match your environment:
+   
      ```netsh http add sslcert hostnameport=**linx.domain.local**:**443** appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=**<THUMBPRINT>** certstorename=My```
    - Replace FQDN, Port, Domain and the gMSA service account used to match your environment
+   
      ```netsh http add urlacl url="https://**linx.aklagare.net**:**443**/" user="**DOMAIN**\**gMSA-Linx$**"```
  
 - Configure "*base_settings.json*" to match your environment:
