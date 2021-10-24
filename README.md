@@ -99,7 +99,7 @@ For everything to work as expected the following requirements should be met:
    
    - Enter the gMSA service account, clear the password fields and save by pressing "*OK*"
 
-- Open an elevated command prmopt and run these two commands:
+- Open an elevated command prmopt and run these two commands (*this is included in RestPS originally, but don't want the requirement of being a local admin to run it*):
    
    - Replace FQDN, Port and Thumbprint used to match your environment:
    
