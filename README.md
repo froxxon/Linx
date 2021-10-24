@@ -116,7 +116,7 @@ For everything to work as expected the following requirements should be met:
    - Order a new certificate according to your local routines
    - Open "*certlm.msc*" and add the certificate to "*Personal*" \ "*Certificates*"
    - Remove the old certificate in the same store (*recommended*)
-   - Open an elevated command prompt and run:
+   - Open an elevated command prompt and run (*changes values to match your environment*):
    
       ```netsh http delete sslcert hostnameport=linx.domain.local:443```
       
