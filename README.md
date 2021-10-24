@@ -67,9 +67,9 @@ For everything to work as expected the following requirements should be met:
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
-- Configure "*base_settings.json*" to suite your environment:
+- Configure "*base_settings.json*" to match your environment:
    - *ServerURL:* https://linx.froxxen.com (*must match CN or SAN in certificate*)
-   - *SSLThumbprint:* <Check your certificates thumbprint>
+   - *SSLThumbprint:* Check your certificates thumbprint and paste it here
    - *AdminGroup:* Common name of the group containing Linx-administrators
    - *EditGroup:* Common name of the group containing Linx-editors (*a.k.a. admins without sugar*)
    - *OU_Admin:* Distinguished name for the OU which holds your administrative accounts, if those shall have access to Linx
