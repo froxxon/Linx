@@ -129,31 +129,32 @@ For everything to work as expected the following requirements should be met:
    
    - *OU_User:* Distinguished namr for the OU containing the standard users of Linx
 
-    *Port, Domain and Language could also be specified if necessary...*
+    *Port and Language could also be specified if necessary...*
 
- - gMSA minimum permissions (*recommended*):
+ - Set file and folder permissions for gMSA service account
+   - gMSA minimum permissions (*recommended*):
    
-   - "*Delete*" files under "*bin\Personal*"
+      - "*Delete*" files under "*bin\Personal*"
    
-   - "*Modify*" on the following subfolders and files:
+      - "*Modify*" on the following subfolders and files:
       
-      - bin (*folder*)
+         - bin (*folder*)
       
-      - images (*folder*)
+         - images (*folder*)
       
-      - lang (*folder*)
+         - lang (*folder*)
       
-      - logs (*folder*)
+         - logs (*folder*)
       
-      - settings (*folder*)
+         - settings (*folder*)
       
-      - style (*folder*)
+         - style (*folder*)
       
-      - base_settings.json
+         - base_settings.json
 
-- gMSA sloppy ACLs (**not** *recommended*):
+   - gMSA sloppy ACLs (**not** *recommended*):
    
-   - "*Full Control*" on Linx subfolders and files
+      - "*Full Control*" on Linx subfolders and files
  
 - Start the service and go to Linx from another machine to start using it
 
