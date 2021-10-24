@@ -62,13 +62,29 @@ For everything to work as expected the following requirements should be met:
 - Download and unpack this repo to a Windows Server under ex. "C:\RestPS\Linx"
 - Download [NSSM](https://nssm.cc/download) and install to default directory in "Program Files"
 - Create an internal DNS-record, ex. linx.domain.local
-- Issue a web server certificate according to normal routine
+- Issue a web server certificate according to normal routine and add to "*Personal*" \ "*Certificates*" in "*certlm.msc*"
 - Create a gMSA service account (*with no more than "Domain user" rights, except the need to "*Log on as a service*" on this specific server*)
+- Install and test the gMSA service account (*"install-adserviceaccount gmsa-linx"  and "test-adserviceaccount gmsa-linx*" )
+- Create two security groups, one for Edit- and one for Admin access to Linx (*and add sufficient members to those*)
 - Makre sure the TCP port that will be used, usually 443, is open in sufficient firewalls, ex. between your client/this server
 
 ## INSTALLATION
+- Run the script "*bin\Set-Service.ps*" in an elevated Powershell prompt (*assign different parameters if NSSM or Linx paths are changed*)
+- 
+- Open "*services.msc*" elevated and find the service "*Linx*"
+   - Right-click and select "*Properties*" \ "*Log on*" \ "*This account*"
+   - Enter the gMSA service account, clear the password fields and save by pressing "*OK*"
+   - 
+- Open an elevated command prmopt and run these two commands:
+   - Replace FQDN, Port and Thumbprint used to match your environment:
+     *netsh http add sslcert hostnameport=**linx.domain.local***:**443** appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=**<THUMBPRINT>** certstorename=My*
+   - Replace FQDN, Port, Domain and the gMSA service account used to match your environment
+     *netsh http add urlacl url="https://**linx.aklagare.net**:**443**/" user="**DOMAIN**\**gMSA-Linx$**"*
+ 
 - Configure "*base_settings.json*" to match your environment:
-   - *ServerURL:* https://linx.froxxen.local (*pre https:// must match CN or SAN in certificate*)
+   - *ServerURL:* https://linx.domain.local (*pre https:// must match CN or SAN in certificate*)
+   - *ShortURL:* linx.domain.local (*FQDN*)
+   - *Domain:* DOMAIN (*short name fo the domain*)
    - *SSLThumbprint:* Check your certificates thumbprint and paste it here
    - *AdminGroup:* Common name of the group containing Linx-administrators
    - *EditGroup:* Common name of the group containing Linx-editors (*a.k.a. admins without sugar*)
@@ -76,11 +92,9 @@ For everything to work as expected the following requirements should be met:
    - *OU_Group:* Distinguished name for the OU containing the Admin and Edit Linx groups
    - *OU_User:* Distinguished namr for the OU containing the standard users of Linx
 
-    *ShortURL, Port, Domain and Language could also be specified if necessary...*
+    *Port, Domain and Language could also be specified if necessary...*
 
-- Run "*Install-Linx.ps1*" (*not provided yet*) from an elevated Powershell prompt, uses the information provided in "*base_settings.json*"
-
-- gMSA minimum permissions (*recommended*):
+ - gMSA minimum permissions (*recommended*):
    - "*Delete*" files under "*bin\Personal*"
    - "*Modify*" on the following subfolders and files:
       - bin (*folder*)
@@ -92,9 +106,19 @@ For everything to work as expected the following requirements should be met:
       - base_settings.json
 - gMSA sloppy ACLs (**not** *recommended*):
    - "*Full Control*" on Linx subfolders and files
+ 
+- Start the service and go to Linx from another machine to start using it
 
 ## POST-INSTALLATION
-- Every now and then your certificate will expire, then you need to order a new one according to your local routines and then run "*bin\Update-LinxCertificate.ps1*" (*not released yet though*) in an elevated Powershell prompt
+- Every now and then your certificate will expire, then:
+   - Order a new certificate according to your local routines
+   - Open "*certlm.msc*" and add the certificate to "*Personal*" \ "*Certificates*"
+   - Remove the old certificate in the same store (*recommended*)
+   - Open an elevated command prompt and run:
+      - *netsh http delete sslcert hostnameport=**linx.domain.local**:**443** *
+      - *netsh http add sslcert hostnameport=**linx.domain.local**:**443** appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=**<THUMBPRINT>** certstorename=My
+   - Open "*base_settings.json*' in an elevated editor and change "*SSLThumbprint*" to the one matching the new certificate
+   - Restart the service
 
 ## TROUBLESHOOTING
 - The service won't start:
