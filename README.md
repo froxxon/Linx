@@ -17,7 +17,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 - Categorize, tag and filter links to find them fast
 - Role bases Access Control *per* link
 - Role based Access Control for editors and admins
-- OU based access control for normal users
+- OU based access control for regular users
 - Customize (*some*) CSS in web interface
 - Customize regular expressions used to your need
 - No database needed, all stored locally (*with pro's and con's coming with that approach*)
@@ -28,7 +28,7 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 - And more...
 
 ## FUTURE CHANGES
-- None planned yet
+- Try to convert a JQuery functiin to JavaScript (*that collapse/expand Headers onClick*), without knowing either that well and online converters does not seem to either...
 
 ## CHANGE LOG
 
