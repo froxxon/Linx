@@ -212,7 +212,7 @@ $HTML += @"
         }
       }
     }
-    sortTableByAREF(0);
+    //sortTableByAREF(0);
   </script>
 </body>
 </html>
