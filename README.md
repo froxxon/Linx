@@ -185,23 +185,50 @@ For everything to work as expected the following requirements should be met:
 
 ## INSTRUCTIONS
 
-![](screenshots/Menubar_Start.png)
+## MENU
+
 When you start the site for the first time you will have access to this menu if you login as Admin.
 The tab "*Admin*" will show if you have Edit permissions as well, but will be hidden for regular users.
+Selection of themes (*to the right*) is also an available setting to turn off if you desire for all users.
+
+![](screenshots/Menubar_Start.png)
+
+## ADMIN MENU
+
+Go to the "*Admin*" link and this bar will show up, the tabs for "*CSS*", "*TEXT*", "*Regex*" and "*SETTINGS*" are only visible for Admins, not editors.
 
 ![test](screenshots/Menubar_Admin.png)
 
-![](screenshots/Menubar_SelectTheme.png)
+## THEME SELECTION (*ON BY DEFAULT*)
 
+![](screenshots/Menubar_SelectTheme.png)
 ![](screenshots/Menubar_SelectThemeChanged.png)
+
+## ADMIN PAGE
+
+On the admin page you can see a list of all links created (*excluded all personal ones though*) and sort by column
 
 ![](screenshots/Page_AdminView.png)
 
+## EDIT LINK
+
+When you edit a link, either through personal or admin view, it will look like this (*Role and Contact is not available for personal links though*)
+
 ![](screenshots/Page_EditLink.png)
+
+## SETTINGS
+
+In "*ADMIN*" \ "*SETTINGS*" you can confgiure such settings as what language will be used for Linx, if the footer will show or not, toggle the availability of personal links and themes and set the default theme for all users
 
 ![](screenshots/Page_Settings.png)
 
+## THE "*BLACK AND WHITEISH* THEME
+
+Here is just a glimpse of one of the default themes
+
 ![](screenshots/Page_ShowBlackTheme.png)
+
+## PERSONAL LINKS
 
 ![](screenshots/Page_ShowPersonalLink.png)
 
