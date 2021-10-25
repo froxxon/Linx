@@ -74,7 +74,7 @@ For everything to work as expected the following requirements should be met:
 </details>
 
 ## PRE-INSTALLAION
-- Download and unpack this repo to a Windows Server under ex. "*C:\RestPS\Linx*"
+- Download this repo and unpack the folder "*Linx*" to a Windows Server under ex. "*C:\RestPS\Linx*"
 
 - Download [NSSM](https://nssm.cc/download) and install to default directory in "*C:\Program Files*"
 
