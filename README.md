@@ -40,6 +40,8 @@ This place would in this scenario be, you've probably already guessed it, Linx.
 
 - Uses "*System.Net.HttpListener*"
 
+- New logo
+
 - And more...
 
 ## FUTURE CHANGES
