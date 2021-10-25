@@ -192,14 +192,14 @@ For everything to work as expected the following requirements should be met:
 ### MENU
 
 When you start the site for the first time you will have access to this menu if you login as Admin.
-The tab "*Admin*" will show if you have Edit permissions as well, but will be hidden for regular users.
+The tab "*ADMIN*" will show if you have Edit permissions as well, but will be hidden for regular users.
 Selection of themes (*to the right*) is also an available setting to turn off if you desire for all users.
 
 ![](screenshots/Menubar_Start.png)
 
 ### ADMIN MENU
 
-Go to the "*Admin*" link and this bar will show up, the tabs for "*CSS*", "*TEXT*", "*Regex*" and "*SETTINGS*" are only visible for Admins, not editors.
+Go to the "*Admin*" link and this bar will show up, the tabs for "*CSS*", "*TEXT*", "*REGEX*" and "*SETTINGS*" are only visible for Admins, not editors.
 
 ![test](screenshots/Menubar_Admin.png)
 
