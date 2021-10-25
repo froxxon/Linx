@@ -185,13 +185,15 @@ For everything to work as expected the following requirements should be met:
 
 ## INSTRUCTIONS
 
+![](screenshots/Menubar_Start.png)
+When you start the site for the first time you will have access to this menu if you login as Admin.
+The tab "*Admin*" will show if you have Edit permissions as well, but will be hidden for regular users.
+
 ![test](screenshots/Menubar_Admin.png)
 
 ![](screenshots/Menubar_SelectTheme.png)
 
 ![](screenshots/Menubar_SelectThemeChanged.png)
-
-![](screenshots/Menubar_Start.png)
 
 ![](screenshots/Page_AdminView.png)
 
