@@ -74,7 +74,7 @@ For everything to work as expected the following requirements should be met:
 </details>
 
 ## PRE-INSTALLAION
-- Download this repo and unpack the folder "*Linx*" to a Windows Server under ex. "*C:\RestPS\Linx*" (if you change the path you need to modify *"endpoints\Routes.json"*)
+- Download this repo and unpack the folder "*Linx*" to a Windows Server under ex. "*C:\RestPS\Linx*" (*if you change the path you need to modify "endpoints\Routes.json"*)
 
 - Download [NSSM](https://nssm.cc/download) and copy the 64-bit version of "*NSSM.exe*" to "*C:\Program Files\NSSM\*"
 
