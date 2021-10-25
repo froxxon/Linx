@@ -4,7 +4,7 @@ param (
     $PowershellPath = ((Get-Command powershell).Source),
     $LinxPath       = 'C:\RestPS\Linx\Start-Service.ps1'
 )
-$Arguments = '-ExecutionPolicy Bypass -File "$' + $LinxPath + '"'
+$Arguments = '-ExecutionPolicy Bypass -File "' + $LinxPath + '"'
 
 & $nssm install $ServiceName $PowershellPath $Arguments
 & $nssm status $ServiceName
