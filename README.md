@@ -199,7 +199,7 @@ Selection of themes (*to the right*) is also an available setting to turn off if
 
 ### ADMIN MENU
 
-Go to the "*Admin*" link and this bar will show up, the tabs for "*CSS*", "*TEXT*", "*REGEX*" and "*SETTINGS*" are only visible for Admins, not editors.
+Go to the "*ADMIN*" link and this bar will show up, the tabs for "*CSS*", "*TEXT*", "*REGEX*" and "*SETTINGS*" are only visible for Admins, not editors.
 
 ![test](screenshots/Menubar_Admin.png)
 
