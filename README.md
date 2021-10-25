@@ -76,7 +76,7 @@ For everything to work as expected the following requirements should be met:
 ## PRE-INSTALLAION
 - Download this repo and unpack the folder "*Linx*" to a Windows Server under ex. "*C:\RestPS\Linx*"
 
-- Download [NSSM](https://nssm.cc/download) and install to default directory in "*C:\Program Files*"
+- Download [NSSM](https://nssm.cc/download) and copy the 64-bit version of "*NSSM.exe*" to "*C:\Program Files\NSSM\*"
 
 - Create an internal DNS-record, ex. "*linx.domain.local*"
 
@@ -84,7 +84,7 @@ For everything to work as expected the following requirements should be met:
 
 - Create a gMSA service account (*with no more than "Domain user" rights, except the need to "*Log on as a service*" on this specific server*)
 
-- Install and test the gMSA service account (*"install-adserviceaccount gmsa-linx"  and "test-adserviceaccount gmsa-linx*" )
+- Install and test the gMSA service account (*Requires "the feature "Active Directory module for Windows Powershell", "install-adserviceaccount gmsa-linx"  and "test-adserviceaccount gmsa-linx*" )
 
 - Create two security groups, one for Edit- and one for Admin access to Linx (*and add sufficient members to those*)
 
@@ -107,7 +107,7 @@ For everything to work as expected the following requirements should be met:
    
    - Replace FQDN, Port, Domain and the gMSA service account used to match your environment
    
-     ```netsh http add urlacl url="https://linx.aklagare.net:443/" user="DOMAIN\gMSA-Linx$"```
+     ```netsh http add urlacl url="https://linx.domain.local:443/" user="DOMAIN\gMSA-Linx$"```
  
 - Configure "*base_settings.json*" to match your environment:
    
