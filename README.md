@@ -185,16 +185,24 @@ For everything to work as expected the following requirements should be met:
 
 ## INSTRUCTIONS
 
-![Logo](Linx/images/logo_default.png)
-![](screenshots/Menubar_Admin.png)
+![test](screenshots/Menubar_Admin.png)
+
 ![](screenshots/Menubar_SelectTheme.png)
+
 ![](screenshots/Menubar_SelectThemeChanged.png)
+
 ![](screenshots/Menubar_Start.png)
+
 ![](screenshots/Page_AdminView.png)
+
 ![](screenshots/Page_EditLink.png)
+
 ![](screenshots/Page_Settings.png)
+
 ![](screenshots/Page_ShowBlackTheme.png)
+
 ![](screenshots/Page_ShowPersonalLink.png)
+
 ![](screenshots/Page_ShowPersonalLinks.png)
 
 ## GREETINGS
