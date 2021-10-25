@@ -215,7 +215,7 @@ When you edit a link, either through personal or admin view, it will look like t
 
 ### SETTINGS
 
-In "*ADMIN*" \ "*SETTINGS*" you can confgiure such settings as what language will be used for Linx, if the footer will show or not, toggle the availability of personal links and themes and set the default theme for all users
+In "*ADMIN*" \ "*SETTINGS*" you can confgiure such settings as what language will be used for Linx, if the footer will show or not, toggle the availability of personal links and themes, set the default theme for all users as well as uploading a new image for the Logo
 
 ![](screenshots/Page_Settings.png)
 
