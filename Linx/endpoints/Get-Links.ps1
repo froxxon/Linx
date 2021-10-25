@@ -25,17 +25,18 @@ param ( $RequestArgs )
     if ( $MainUser.memberof -match "$($ScriptVariables.EditGroup)" ) { $AdminLink = '<a href="' + $ScriptVariables.ServerURL + '/Admin">Admin</a>' }
 #endregion
 #region Get Links
-    $Links = Import-CSV $ScriptVariables.LinksFilePath -Delimiter $ScriptVariables.CSVDelimiter
+    $Links = Get-Content $ScriptVariables.LinksFilePath
     if ( $ScriptVariables.AllowPersonalLinks -eq $true ) {
         $PersonalPath = "$($ScriptVariables.PersonalPath)\$CurrentUser.csv"
         if ( Test-Path $PersonalPath ) {
             if ( ( Get-Content $PersonalPath -first 2).count -gt 1 ) {
-                $Links += Import-CSV $PersonalPath -Delimiter $ScriptVariables.CSVDelimiter
+                $Links += Get-Content $PersonalPath | Select -Skip 1
                 $PersonalLinks = $true
             }
         }
         if ( $PersonalLinks ) { $PersonalLink = '<a href="' + $ScriptVariables.ServerURL + '/Personal">' + $ScriptVariables.Text.PersonalLink + '</a>' }
     }
+    $Links = $Links | ConvertFrom-Csv -Delimiter $ScriptVariables.CSVDelimiter
 #endregion
 
 $SelectThemes = Get-ThemeOptions $CurrentUser
