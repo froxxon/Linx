@@ -149,7 +149,7 @@ elseif ( $RequestArgs -match '^SelectTheme' ) {
         Remove-Item ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link') -Force
         '' | Out-File ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-' + $SelectedTheme + '.css_link') -Force
     }
-    $HTML += '<form id="AutoSubmit" action="/' + $Source + '" method="get" enctype="multipart/form-data" accept-charset="' + $ScriptVariables.Charset + '"></form>'
+    $HTML = '<form id="AutoSubmit" action="/' + $Source + '" method="get" enctype="multipart/form-data" accept-charset="' + $ScriptVariables.Charset + '"></form>'
     $HTML += '<script type="text/javascript">'
     $HTML += 'function formAutoSubmit(){document.getElementById("AutoSubmit").submit();}'
     $HTML += 'window.onload = formAutoSubmit;'
