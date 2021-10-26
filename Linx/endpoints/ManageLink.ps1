@@ -115,12 +115,17 @@ elseif ( $RequestArgs -match '^UpdateCSS$' ) {
                 $OutFile += "    $($attribute ): $($_.value);`n"
                 $ParentCreated = $true
             }
-            else { $OutFile += "    $($attribute ): $($_.value);`n" }
+            else {
+                if ( $parent -match "slider:before" -and $attribute -match 'content' -and ($_.value -eq $null -or $_.value -eq '')) {
+                    $Value = '""'
+                }
+                else { $Value = $_.Value }
+                $OutFile += "    $($attribute ): $Value;`n"
+            }
         }
     }
     $OutFile += "  }`n"
     $OutFile += "</style>"
-    $Output += $NewCSSTheme 
     if ( $NewCSSTheme ) {
         $OutFile | Out-File ($ScriptVariables.ScriptPath + 'style\theme-' + $NewCSSTheme + '.css' ) -Encoding ($ScriptVariables.Charset -replace '-','')
     }
