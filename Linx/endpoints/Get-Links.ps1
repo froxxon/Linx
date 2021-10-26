@@ -25,18 +25,17 @@ param ( $RequestArgs )
     if ( $MainUser.memberof -match "$($ScriptVariables.EditGroup)" ) { $AdminLink = '<a href="' + $ScriptVariables.ServerURL + '/Admin">Admin</a>' }
 #endregion
 #region Get Links
-    $Links = Get-Content $ScriptVariables.LinksFilePath
+    $Links = Import-CSV $ScriptVariables.LinksFilePath -Delimiter $ScriptVariables.CSVDelimiter
     if ( $ScriptVariables.AllowPersonalLinks -eq $true ) {
         $PersonalPath = "$($ScriptVariables.PersonalPath)\$CurrentUser.csv"
         if ( Test-Path $PersonalPath ) {
             if ( ( Get-Content $PersonalPath -first 2).count -gt 1 ) {
-                $Links += Get-Content $PersonalPath | Select -Skip 1
+                $Links += Import-CSV $PersonalPath -Delimiter $ScriptVariables.CSVDelimiter
                 $PersonalLinks = $true
             }
         }
         if ( $PersonalLinks ) { $PersonalLink = '<a href="' + $ScriptVariables.ServerURL + '/Personal">' + $ScriptVariables.Text.PersonalLink + '</a>' }
     }
-    $Links = $Links | ConvertFrom-Csv -Delimiter $ScriptVariables.CSVDelimiter
 #endregion
 
 $SelectThemes = Get-ThemeOptions $CurrentUser
@@ -150,7 +149,6 @@ elseif ( $RequestArgs -match '^SelectTheme' ) {
         Remove-Item ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link') -Force
         '' | Out-File ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-' + $SelectedTheme + '.css_link') -Force
     }
-    $HTML =  '<html><body>' + $RequestArgs
     $HTML += '<form id="AutoSubmit" action="/' + $Source + '" method="get" enctype="multipart/form-data" accept-charset="' + $ScriptVariables.Charset + '"></form>'
     $HTML += '<script type="text/javascript">'
     $HTML += 'function formAutoSubmit(){document.getElementById("AutoSubmit").submit();}'
