@@ -140,9 +140,9 @@ if ( !$RequestArgs ) {
     $HTML += '</td></tr>'
 }
 elseif ( $RequestArgs -match '^SelectTheme' ) {
-    $SelectedTheme = [regex]::match($RequestArgs,"(?<=&).[^&]*")#$RequestArgs -replace 'SelectTheme&',''
+    $SelectedTheme = [regex]::match($RequestArgs,"(?<=&).[^&]*")
     $Source = [regex]::match($RequestArgs,"(?<=&.*&).*$")
-    if ( $SelectedTheme -eq $ScriptVariables.Theme ) {
+    if ( $SelectedTheme -match "^$($ScriptVariables.Theme)$" ) {
         Remove-Item ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link') -Force
     }
     else {
