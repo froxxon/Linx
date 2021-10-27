@@ -4,6 +4,9 @@ param ( $RequestArgs )
     $CurrentUser = $null
     $CurrentUser = $($context.User.Identity.Name -replace ("$($ScriptVariables.Domain)\\",''))
     
+    try { '' | Out-File ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '.accesstime' ) }
+    catch {}
+    
     if ( $ScriptVariables.AllowPersonalTheme -eq $true ) {
         $PersonalCSSLink = (Get-ChildItem ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link')).BaseName
     }
