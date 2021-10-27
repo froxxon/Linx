@@ -8,7 +8,15 @@ param ( $RequestArgs )
         $PersonalCSSLink = (Get-ChildItem ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link')).BaseName
     }
     else { $PersonalCSSLink = $null }
-    if ( $PersonalCSSLink ) { $CSS = Get-Content ($ScriptVariables.ScriptPath + 'style\' + ($PersonalCSSLink -replace "$CurrentUser-",'') + '.css' ) }
+    if ( $PersonalCSSLink ) {
+        if ( Test-Path ($ScriptVariables.ScriptPath + 'style\' + ($PersonalCSSLink -replace "$CurrentUser-",'') + '.css' ) ) {
+            $CSS = Get-Content ($ScriptVariables.ScriptPath + 'style\' + ($PersonalCSSLink -replace "$CurrentUser-",'') + '.css' )
+        }
+        else {
+            Remove-Item ($ScriptVariables.PersonalPath + '\' + $CurrentUser + '-*.css_link') -Force
+            $CSS = Get-Content $ScriptVariables.CSSpath
+        }
+    }
     else { $CSS = Get-Content $ScriptVariables.CSSpath }
     
     $HTML = Get-HTMLHead $CSS
