@@ -103,6 +103,17 @@ elseif ( $RequestArgs -match '^Log$' ) {
     }
     $HTML += '</table>'
     $HTML += '</td></tr>'
+    $HTML += '<tr><td>'
+    $HTML += '<table align="center" class="innerTable">'
+    $HTML += '<tr><th colspan="3" >' + $ScriptVariables.Text.Visitors + '</th></tr>'
+    $HTML += '<tr><td width="33%">' + $ScriptVariables.Text.IsToday + '</td><td width="33%">7 ' + $ScriptVariables.Text.IsDays + '</td><td width="33%">30 ' + $ScriptVariables.Text.IsDays + '</td></tr>'
+    $AccessTimes = Get-Childitem ($ScriptVariables.PersonalPath + '\*.accesstime') | Select LastWriteTime
+    $Users1Day = @($AccessTimes | Where { $_.LastWriteTime -gt (Get-Date).Date }).Count
+    $Users7Days = @($AccessTimes | Where { $_.LastWriteTime -gt (Get-Date).Date.AddDays(-7) }).Count
+    $Users30Days = @($AccessTimes | Where { $_.LastWriteTime -gt (Get-Date).Date.AddDays(-30) }).Count
+    $HTML += '<tr><td>' + $Users1Day + '</td><td>' + $Users7Days + '</td><td>' + $Users30Days + '</td></tr>'
+    $HTML += '</table>'
+    $HTML += '</td></tr>'
 }
 elseif ( $RequestArgs -match '^[0-9]{8}$' ) {
     if ( ! $Edit ) { exit }
