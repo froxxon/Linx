@@ -13,7 +13,9 @@
     "Edit":  "Change",
     "Everyone":  "Everyone",
     "FilterText":  "Filter by text...",
+    "IsDays":  "days",
     "IsNo":  "No",
+    "IsToday":  "Today",
     "IsYes":  "Yes",
     "JumpToCatText":  "Jump to category",
     "LblCategory":  "Category",
@@ -54,5 +56,6 @@
     "Title":  "collected web links in one place",
     "UpdateBtn":  "Update",
     "UploadLogoBtn":  "Browse image file",
-    "UserPageText":  ""
+    "UserPageText":  "",
+    "Visitors":  "Visitors"
 }

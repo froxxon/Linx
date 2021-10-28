@@ -13,7 +13,9 @@
     "Edit":  "Ändra",
     "Everyone":  "Alla",
     "FilterText":  "Filtrera med fritext...",
+    "IsDays":  "dagar",
     "IsNo":  "Nej",
+    "IsToday":  "Idag",
     "IsYes":  "Ja",
     "JumpToCatText":  "Hoppa till kategori",
     "LblCategory":  "Kategori",
@@ -31,7 +33,7 @@
     "LogText":  "senaste raderna visas från loggen",
     "NewCSSTheme":  "Skapa nytt tema",
     "PersonalLink":  "Personligt",
-    "PersonalText":  "Det här valet kommer endast skapa länk och kategori för dinanvändare och därmed inte vara synlig för andra.",
+    "PersonalText":  "Det här valet kommer endast skapa länk och kategori för din användare och därmed inte vara synlig för andra.",
     "PhdCategory":  "Skriv in en ny Kategori eller välj en existerande i listan",
     "PhdContact":  "Ange en teknisk kontaktperson",
     "PhdDescription":  "Ange beskrivning för länken",
@@ -54,5 +56,6 @@
     "Title":  "Linx - samlade länkar för it-avdelningen",
     "UpdateBtn":  "Uppdatera",
     "UploadLogoBtn":  "Välj en fil att ladda upp...",
-    "UserPageText":  "De flesta av länkarna på denna sida kräver någon form av autentisering mot respektive system för att kunna användas och kan även vara så att de går att komma åt antingen från en klient eller server. Länkar öppnas i en ny tab vid klick."
+    "UserPageText":  "De flesta av länkarna på denna sida kräver någon form av autentisering mot respektive system för att kunna användas och kan även vara så att de går att komma åt antingen från en klient eller server. Länkar öppnas i en ny tab vid klick.",
+    "Visitors":  "Besökare"
 }
