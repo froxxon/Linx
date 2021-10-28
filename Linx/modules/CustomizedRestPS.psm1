@@ -12,6 +12,7 @@ $global:ScriptVariables += @{
 }
 (Get-Content ($($ScriptVariables.ScriptPath) + 'base_settings.json') | ConvertFrom-Json).PSObject.Properties | foreach { $ScriptVariables[$_.Name] = $_.Value }
 (Get-Content ($($ScriptVariables.ScriptPath) + 'settings\custom_settings.json') | ConvertFrom-Json).PSObject.Properties | foreach { $ScriptVariables[$_.Name] = $_.Value }
+if ( $ScriptVariables.Port -ne '443' ) { $ScriptVariables.ServerURL = "$($ScriptVariables.ServerURL):$($ScriptVariables.Port)" }
 $ScriptVariables.CSSpath = $ScriptVariables.ScriptPath + 'style\' + $ScriptVariables.Theme + '.css'
 $ScriptVariables.Text = $ScriptVariables.Text = @{} ; (Get-Content ($ScriptVariables.LanguagePath + $ScriptVariables.Language + '.json') | ConvertFrom-Json).PSObject.Properties | foreach { $ScriptVariables.Text[$_.Name] = $_.Value } | Sort Name
 $ScriptVariables.Regex = $ScriptVariables.Regex = @{} ; (Get-Content $ScriptVariables.RegExpsPath | ConvertFrom-Json).PSObject.Properties | foreach { $ScriptVariables.Regex[$_.Name] = $_.Value } | Sort Name
