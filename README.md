@@ -103,15 +103,15 @@ For everything to work as expected the following requirements should be met:
    
    - Enter the gMSA service account, clear the password fields and save by pressing "*OK*"
 
-- Open an elevated command prmopt and run these two commands (*this is included in RestPS originally, but don't want the requirement of being a local admin to run it*):
+- Open an elevated command prompt and run these two commands (*these require local admin rights and must be run before starting the service, as the gMSA service account does not have the necessary privileges to run them*):
    
-   - Replace FQDN, Port and Thumbprint used to match your environment:
+   - Replace Port and Thumbprint to match your environment:
    
-     ```netsh http add sslcert hostnameport=linx.domain.local:443 appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=THUMBPRINT certstorename=My```
+     ```netsh http add sslcert ipport=0.0.0.0:443 appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=THUMBPRINT certstorename=My```
    
-   - Replace FQDN, Port, Domain and the gMSA service account used to match your environment
+   - Replace Port, Domain and the gMSA service account to match your environment
    
-     ```netsh http add urlacl url="https://linx.domain.local:443/" user="DOMAIN\gMSA-Linx$"```
+     ```netsh http add urlacl url="https://+:443/" user="DOMAIN\gMSA-Linx$"```
  
 - Configure "*base_settings.json*" to match your environment:
    
@@ -171,11 +171,11 @@ For everything to work as expected the following requirements should be met:
    
    - Remove the old certificate in the same store (*recommended*)
    
-   - Open an elevated command prompt and run (*changes values to match your environment*):
+   - Open an elevated command prompt and run (*change Port to match your environment*):
    
-      ```netsh http delete sslcert hostnameport=linx.domain.local:443```
+      ```netsh http delete sslcert ipport=0.0.0.0:443```
       
-      ```netsh http add sslcert hostnameport=linx.domain.local:443 appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=THUMBPRINT certstorename=My```
+      ```netsh http add sslcert ipport=0.0.0.0:443 appid={2a81d04e-f297-46a6-b17a-3580fa3d91a5} certhash=THUMBPRINT certstorename=My```
    - Open "*base_settings.json*' in an elevated editor and change "*SSLThumbprint*" to the one matching the new certificate
    
    - Restart the service

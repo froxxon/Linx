@@ -92,7 +92,7 @@ function Invoke-StartListener {
     }
 
     try {
-        $listener.Prefixes.Add("$($Prefix)$($ScriptVariables.ShortURL):$Port/")
+        $listener.Prefixes.Add("$($Prefix)+:$Port/")
         $listener.Start()
         $Host.UI.RawUI.WindowTitle = "RestPS - $Prefix - Port: $Port"
         Write-Log -LogFile $Logfile -LogLevel $logLevel -MsgType INFO -Message "Invoke-StartListener: Starting: $Prefix$($ScriptVariables.ShortURL) Listener on Port: $Port"
